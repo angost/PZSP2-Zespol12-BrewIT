@@ -21,3 +21,9 @@ TextTheme baseTextTheme = const TextTheme(
   bodyColor: textDarkColor,
   displayColor: textDarkColor,
 );
+
+TextStyle buttonStyle =
+    const TextStyle().copyWith(fontWeight: FontWeight.bold, fontSize: 35);
+
+TextStyle buttonSmallStyle =
+    const TextStyle().copyWith(fontWeight: FontWeight.bold, fontSize: 24);

@@ -8,4 +8,5 @@ ThemeData baseTheme = ThemeData(
     useMaterial3: true,
     scaffoldBackgroundColor: backgroundColor,
     textTheme: baseTextTheme,
-    appBarTheme: AppBarTheme(color: secondaryLighterColor));
+    appBarTheme: AppBarTheme(color: secondaryLighterColor),
+    );

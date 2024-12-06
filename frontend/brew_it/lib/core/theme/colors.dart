@@ -7,6 +7,8 @@ Color errorColor = const Color.fromRGBO(177, 71, 71, 1);
 Color backgroundColor = const Color.fromRGBO(245, 240, 232, 1);
 Color textDarkColor = const Color.fromRGBO(41, 41, 41, 1);
 Color textLightColor = const Color.fromRGBO(248, 247, 246, 1);
+Color greyColor = const Color.fromRGBO(178, 174, 166, 1);
+Color greyLightColor = const Color.fromRGBO(217, 217, 217, 1);
 
 Color primaryTransparentColor = const Color.fromRGBO(70, 103, 49, 34 / 100);
 Color secondaryTransparentColor = const Color.fromRGBO(224, 173, 128, 34 / 100);
