@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:brew_it/presentation/home/home_page_commercial.dart';
-import 'package:brew_it/presentation/home/home_page_contract.dart';
+import 'package:brew_it/presentation/commercial/home_page_commercial.dart';
+import 'package:brew_it/presentation/contract/home_page_contract.dart';
 
 class ChooseUserTypePage extends StatelessWidget {
   const ChooseUserTypePage({super.key});
@@ -11,11 +11,9 @@ class ChooseUserTypePage extends StatelessWidget {
         appBar: AppBar(),
         body:
             Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-          const Text(
+          Text(
             "Jakie konto chcesz założyć?",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-            ),
+            style: Theme.of(context).textTheme.titleSmall,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

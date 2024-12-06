@@ -10,7 +10,7 @@ TextTheme baseTextTheme = const TextTheme(
   headlineSmall: TextStyle(),
   titleLarge: TextStyle(),
   titleMedium: TextStyle(),
-  titleSmall: TextStyle(),
+  titleSmall: TextStyle(fontWeight: FontWeight.bold),
   bodyLarge: TextStyle(),
   bodyMedium: TextStyle(),
   bodySmall: TextStyle(),
@@ -23,7 +23,7 @@ TextTheme baseTextTheme = const TextTheme(
 );
 
 TextStyle buttonStyle =
-    const TextStyle().copyWith(fontWeight: FontWeight.bold, fontSize: 35);
+    const TextStyle().copyWith(fontWeight: FontWeight.bold, fontSize: 18);
 
 TextStyle buttonSmallStyle =
-    const TextStyle().copyWith(fontWeight: FontWeight.bold, fontSize: 24);
+    const TextStyle().copyWith(fontWeight: FontWeight.bold, fontSize: 14);

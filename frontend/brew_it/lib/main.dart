@@ -1,5 +1,5 @@
 import 'package:brew_it/core/theme/theme_constants.dart';
-import 'package:brew_it/presentation/choose_user_type/choose_user_type_page.dart';
+import 'package:brew_it/presentation/log_in_register/choose_user_type_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {

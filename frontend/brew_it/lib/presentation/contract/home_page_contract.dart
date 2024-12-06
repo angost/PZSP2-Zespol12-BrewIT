@@ -1,5 +1,5 @@
-import 'package:brew_it/presentation/common/menu_button.dart';
-import 'package:brew_it/presentation/home/home_page_template.dart';
+import 'package:brew_it/presentation/common/widgets/menu_button.dart';
+import 'package:brew_it/presentation/common/templates/home_page_template.dart';
 
 class HomePageContract extends HomePageTemplate {
   HomePageContract({super.key})

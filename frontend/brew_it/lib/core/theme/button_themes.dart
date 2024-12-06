@@ -8,18 +8,18 @@ ElevatedButtonThemeData primaryButtonTheme = ElevatedButtonThemeData(
         foregroundColor: textLightColor,
         shadowColor: Colors.transparent,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(18),
         ),
-        padding: const EdgeInsets.symmetric(vertical: 23, horizontal: 70),
+        padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 35),
         textStyle: buttonStyle));
 
 ElevatedButtonThemeData primarySmallButtonTheme = ElevatedButtonThemeData(
     style: primaryButtonTheme.style!.copyWith(
         shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(15),
         )),
         padding: const WidgetStatePropertyAll(
-            EdgeInsets.symmetric(vertical: 16, horizontal: 40)),
+            EdgeInsets.symmetric(vertical: 20, horizontal: 25)),
         textStyle: WidgetStatePropertyAll(buttonSmallStyle)));
 
 ElevatedButtonThemeData secondaryButtonTheme = ElevatedButtonThemeData(
@@ -28,18 +28,18 @@ ElevatedButtonThemeData secondaryButtonTheme = ElevatedButtonThemeData(
         foregroundColor: secondaryColor,
         shadowColor: Colors.transparent,
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30),
-            side: BorderSide(color: secondaryColor, width: 3)),
-        padding: const EdgeInsets.symmetric(vertical: 23, horizontal: 70),
+            borderRadius: BorderRadius.circular(18),
+            side: BorderSide(color: secondaryColor, width: 2)),
+        padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 35),
         textStyle: buttonStyle));
 
 ElevatedButtonThemeData secondarySmallButtonTheme = ElevatedButtonThemeData(
     style: secondaryButtonTheme.style!.copyWith(
         shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-            side: BorderSide(color: secondaryColor, width: 2))),
+            borderRadius: BorderRadius.circular(15),
+            side: BorderSide(color: secondaryColor, width: 1.5))),
         padding: const WidgetStatePropertyAll(
-            EdgeInsets.symmetric(vertical: 16, horizontal: 40)),
+            EdgeInsets.symmetric(vertical: 20, horizontal: 25)),
         textStyle: WidgetStatePropertyAll(buttonSmallStyle)));
 
 ElevatedButtonThemeData tertiaryButtonTheme = ElevatedButtonThemeData(
