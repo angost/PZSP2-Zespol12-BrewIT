@@ -1,6 +1,5 @@
 import 'package:brew_it/core/theme/theme_constants.dart';
-import 'package:brew_it/presentation/home/home_page_commercial.dart';
-import 'package:brew_it/presentation/home/home_page_contract.dart';
+import 'package:brew_it/presentation/choose_user_type/choose_user_type_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'BrewIT Demo',
       theme: baseTheme,
-      home: HomePageContract(),
+      home: const ChooseUserTypePage(),
     );
   }
 }
