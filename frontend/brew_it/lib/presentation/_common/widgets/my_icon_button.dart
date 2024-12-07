@@ -14,7 +14,7 @@ class MyIconButton extends StatelessWidget {
     "save": Icons.save,
     "delete": Icons.delete,
     "accept": Icons.check_circle_outline_outlined,
-    "refuse": Icons.cancel_outlined,
+    "cancel": Icons.cancel_outlined,
     "time": Icons.schedule,
     "info": Icons.info_outline,
     "link": Icons.link,
@@ -25,7 +25,7 @@ class MyIconButton extends StatelessWidget {
     "default": greyLightColor,
     "delete": errorTransparentColor,
     "accept": primaryTransparentColor,
-    "refuse": errorTransparentColor,
+    "cancel": errorTransparentColor,
   };
 
   @override
@@ -33,9 +33,10 @@ class MyIconButton extends StatelessWidget {
     return IconButton(
         onPressed: () {},
         style: iconButtonTheme.style!.copyWith(
-            backgroundColor: WidgetStatePropertyAll(typeToIcon.containsKey(type)
-                ? typeToColor[type]
-                : typeToColor["default"])),
+            backgroundColor: WidgetStatePropertyAll(
+                typeToColor.containsKey(type)
+                    ? typeToColor[type]
+                    : typeToColor["default"])),
         icon: typeToIcon.containsKey(type)
             ? Icon(typeToIcon[type])
             : Icon(typeToIcon["default"]));

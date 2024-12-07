@@ -1,6 +1,8 @@
 import 'package:brew_it/presentation/commercial/machines_page.dart';
-import 'package:brew_it/presentation/common/widgets/menu_button.dart';
-import 'package:brew_it/presentation/common/templates/home_page_template.dart';
+import 'package:brew_it/presentation/_common/widgets/menu_button.dart';
+import 'package:brew_it/presentation/_common/templates/home_page_template.dart';
+import 'package:brew_it/presentation/commercial/reservation_requests_page.dart';
+import 'package:brew_it/presentation/commercial/reservations_page.dart';
 
 class HomePageCommercial extends HomePageTemplate {
   HomePageCommercial({super.key})
@@ -9,8 +11,12 @@ class HomePageCommercial extends HomePageTemplate {
             buttons: [
               MenuButton("Zarządzanie urządzeniami",
                   type: "important", navigateToPage: MachinesPage()),
-              MenuButton("Twoje rezerwacje"),
-              MenuButton("Prośby o rezerwację od browarów kontraktowych"),
+              MenuButton(
+                "Twoje rezerwacje",
+                navigateToPage: ReservationsPage(),
+              ),
+              MenuButton("Prośby o rezerwację od browarów kontraktowych",
+                  navigateToPage: ReservationRequestsPage()),
               MenuButton("Uprawnieni do wstępu do browaru"),
               MenuButton("Wyloguj się", type: "warning"),
             ]);
