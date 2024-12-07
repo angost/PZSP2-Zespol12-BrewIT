@@ -9,6 +9,7 @@ class ReservationRequestsPage extends TablePageTemplate {
               "Id",
               "Browar",
               "Daty",
+              "Operacje",
             ],
             options: [
               MyIconButton(type: "info"),
