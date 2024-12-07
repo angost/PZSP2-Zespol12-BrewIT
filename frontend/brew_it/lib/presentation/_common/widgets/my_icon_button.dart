@@ -3,9 +3,10 @@ import 'package:brew_it/core/theme/colors.dart';
 import 'package:flutter/material.dart';
 
 class MyIconButton extends StatelessWidget {
-  MyIconButton({this.type = "default", super.key});
+  MyIconButton({this.type = "default", this.navigateToPage, super.key});
 
   final String type;
+  final Widget? navigateToPage;
 
   final typeToIcon = {
     "default": Icons.info_outline,
@@ -31,7 +32,12 @@ class MyIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-        onPressed: () {},
+        onPressed: () {
+          if (navigateToPage != null) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => navigateToPage!));
+          }
+        },
         style: iconButtonTheme.style!.copyWith(
             backgroundColor: WidgetStatePropertyAll(
                 typeToColor.containsKey(type)
