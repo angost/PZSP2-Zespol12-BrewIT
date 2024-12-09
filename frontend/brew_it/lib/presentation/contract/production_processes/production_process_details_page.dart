@@ -1,6 +1,8 @@
 import 'package:brew_it/presentation/_common/templates/details_add_edit_page_template.dart';
 import 'package:brew_it/presentation/_common/widgets/main_button.dart';
 import 'package:brew_it/presentation/_common/widgets/my_icon_button.dart';
+import 'package:brew_it/presentation/contract/production_processes/production_process_edit_page.dart';
+import 'package:brew_it/presentation/contract/production_processes/production_processes_page.dart';
 
 class ProductionProcessDetailsPage extends DetailsAddEditPageTemplate {
   ProductionProcessDetailsPage(Map elementData, {super.key})
@@ -10,9 +12,20 @@ class ProductionProcessDetailsPage extends DetailsAddEditPageTemplate {
               MainButton(
                 "Powrót",
                 type: "primary_small",
+                navigateToPage: () {
+                  return ProductionProcessesPage();
+                },
               )
             ],
-            options: [MyIconButton(type: "edit")],
+            options: [
+              MyIconButton(
+                type: "edit",
+                navigateToPage: (Map elementData) {
+                  return ProductionProcessEditPage(elementData);
+                },
+                dataForPage: elementData,
+              )
+            ],
             fieldNames: [
               "Typ piwa",
               "Browar komercyjny",
@@ -20,7 +33,6 @@ class ProductionProcessDetailsPage extends DetailsAddEditPageTemplate {
               "Daty",
               "Rezerwacja",
               "Czy udany",
-              "Operacje"
             ],
             jsonFieldNames: [
               "id",
@@ -29,7 +41,6 @@ class ProductionProcessDetailsPage extends DetailsAddEditPageTemplate {
               "id",
               "title",
               "completed",
-              "id"
             ], // MOCK
             elementData: elementData);
 }

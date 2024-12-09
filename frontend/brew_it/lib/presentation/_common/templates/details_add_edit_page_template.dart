@@ -9,6 +9,7 @@ class DetailsAddEditPageTemplate extends StatefulWidget {
       this.options,
       required this.fieldNames,
       required this.jsonFieldNames,
+      this.fieldEditable,
       this.elementData,
       super.key});
 
@@ -17,6 +18,7 @@ class DetailsAddEditPageTemplate extends StatefulWidget {
   final List<MyIconButton>? options;
   final List<String> fieldNames;
   final List<String> jsonFieldNames;
+  final List<bool>? fieldEditable;
   final Map? elementData;
 
   @override
@@ -80,8 +82,10 @@ class _DetailsAddEditPageTemplateState
                             widget.fieldNames.length,
                             (index) => TextFormField(
                                   decoration: InputDecoration(
-                                    labelText: widget.fieldNames[index],
-                                  ),
+                                      labelText: widget.fieldNames[index],
+                                      enabled: widget.fieldEditable != null
+                                          ? widget.fieldEditable![index]
+                                          : false),
                                   initialValue: fieldValues != null
                                       ? fieldValues[index]
                                       : "",

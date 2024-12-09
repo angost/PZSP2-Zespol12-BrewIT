@@ -42,7 +42,11 @@ class MyIconButton extends StatelessWidget {
         onPressed: () {
           if (navigateToPage != null) {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return navigateToPage!(dataForPage);
+              if (dataForPage != null) {
+                return navigateToPage!(dataForPage);
+              } else {
+                return navigateToPage!();
+              }
             }));
           } else if (customOnPressed != null) {
             customOnPressed!();
