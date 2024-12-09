@@ -1,3 +1,4 @@
+import 'package:brew_it/core/helper/field_names.dart';
 import 'package:brew_it/presentation/_common/templates/details_add_edit_page_template.dart';
 import 'package:brew_it/presentation/_common/widgets/main_button.dart';
 import 'package:brew_it/presentation/contract/production_processes/production_process_details_page.dart';
@@ -31,22 +32,9 @@ class ProductionProcessAddPage extends DetailsAddEditPageTemplate {
               },
             )
           ],
-          fieldNames: [
-            "Typ piwa",
-            "Browar komercyjny",
-            "Receptura",
-            "Daty",
-            "Rezerwacja",
-            "Czy udany",
-          ],
-          jsonFieldNames: [
-            "id",
-            "title",
-            "completed",
-            "id",
-            "title",
-            "completed",
-          ], // MOCK
+          fieldNames: ProductionProcessesFieldNames().fieldNames,
+          jsonFieldNames:
+              ProductionProcessesFieldNames().jsonFieldNames,
           fieldEditable: [false, false, true, false, true, false],
         );
 }

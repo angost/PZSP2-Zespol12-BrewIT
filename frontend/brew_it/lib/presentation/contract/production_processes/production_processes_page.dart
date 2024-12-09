@@ -1,3 +1,4 @@
+import 'package:brew_it/core/helper/field_names.dart';
 import 'package:brew_it/presentation/_common/templates/table_page_template.dart';
 import 'package:brew_it/presentation/_common/widgets/main_button.dart';
 import 'package:brew_it/presentation/_common/widgets/my_icon_button.dart';
@@ -13,14 +14,7 @@ class ProductionProcessesPage extends TablePageTemplate {
                 navigateToPage: () {
               return ProductionProcessAddPage();
             }),
-            headers: [
-              "Id",
-              "Typ piwa",
-              "Browar komercyjny",
-              "Daty",
-              "Czy udany",
-              "Operacje"
-            ],
+            headers: ProductionProcessesFieldNames().fieldNamesTable,
             options: [
               MyIconButton(
                 type: "info",
@@ -37,5 +31,5 @@ class ProductionProcessesPage extends TablePageTemplate {
             ],
             // MOCK
             apiString: "https://jsonplaceholder.typicode.com/todos/",
-            jsonFields: ["id", "title", "completed"]);
+            jsonFields: ProductionProcessesFieldNames().jsonFieldNamesTable);
 }
