@@ -1,6 +1,5 @@
 import 'package:brew_it/core/theme/button_themes.dart';
 import 'package:brew_it/core/theme/colors.dart';
-import 'package:brew_it/presentation/contract/reservation_details_page.dart';
 import 'package:flutter/material.dart';
 
 class MyIconButton extends StatelessWidget {
@@ -43,8 +42,7 @@ class MyIconButton extends StatelessWidget {
         onPressed: () {
           if (navigateToPage != null) {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              // return navigateToPage!(dataForPage);
-              return ReservationDetailsPage(dataForPage!);
+              return navigateToPage!(dataForPage);
             }));
           } else if (customOnPressed != null) {
             customOnPressed!();

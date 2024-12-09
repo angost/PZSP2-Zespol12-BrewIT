@@ -11,7 +11,7 @@ class ReservationsPage extends TablePageTemplate {
               MyIconButton(
                 type: "info",
                 navigateToPage: (Map elementData) {
-                  ReservationDetailsPage(elementData);
+                  return ReservationDetailsPage(elementData);
                 },
               ),
               MyIconButton(type: "delete")
