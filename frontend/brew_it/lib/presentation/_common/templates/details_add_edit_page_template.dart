@@ -1,3 +1,5 @@
+import 'package:brew_it/core/theme/text_form_field_themes.dart';
+import 'package:brew_it/core/theme/text_themes.dart';
 import 'package:brew_it/presentation/_common/widgets/main_button.dart';
 import 'package:brew_it/presentation/_common/widgets/my_icon_button.dart';
 import 'package:flutter/material.dart';
@@ -78,18 +80,27 @@ class _DetailsAddEditPageTemplateState
                       flex: 8,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: List.generate(
-                            widget.fieldNames.length,
-                            (index) => TextFormField(
-                                  decoration: InputDecoration(
-                                      labelText: widget.fieldNames[index],
-                                      enabled: widget.fieldEditable != null
-                                          ? widget.fieldEditable![index]
-                                          : false),
-                                  initialValue: fieldValues != null
-                                      ? fieldValues[index]
-                                      : "",
-                                )),
+                        children:
+                            List.generate(widget.fieldNames.length, (index) {
+                          bool editable = widget.fieldEditable != null &&
+                              widget.fieldEditable![index];
+
+                          return TextFormField(
+                            decoration: editable
+                                ? InputDecoration(
+                                    labelText: widget.fieldNames[index])
+                                : InputDecoration(
+                                    labelText: widget.fieldNames[index],
+                                    border: disabledTextFormFieldTheme.border,
+                                    fillColor:
+                                        disabledTextFormFieldTheme.fillColor,
+                                  ),
+                            initialValue:
+                                fieldValues != null ? fieldValues[index] : "",
+                            enabled: editable,
+                            style: baseTextTheme.bodyLarge,
+                          );
+                        }),
                       ))
                 ],
               ),

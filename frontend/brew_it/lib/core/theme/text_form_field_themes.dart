@@ -12,3 +12,10 @@ InputDecorationTheme baseTextFormFieldTheme = InputDecorationTheme(
     filled: true,
     floatingLabelBehavior: FloatingLabelBehavior.always,
     labelStyle: baseTextTheme.titleLarge);
+
+InputDecorationTheme disabledTextFormFieldTheme = InputDecorationTheme(
+  border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(15),
+      borderSide: BorderSide(color: greyLightColor)),
+  fillColor: Colors.transparent,
+);
