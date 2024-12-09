@@ -9,7 +9,7 @@ class DetailsAddEditPageTemplate extends StatefulWidget {
       this.options,
       required this.fieldNames,
       required this.jsonFieldNames,
-      this.fieldValues,
+      this.elementData,
       super.key});
 
   final String title;
@@ -17,7 +17,7 @@ class DetailsAddEditPageTemplate extends StatefulWidget {
   final List<MyIconButton>? options;
   final List<String> fieldNames;
   final List<String> jsonFieldNames;
-  final List<String>? fieldValues;
+  final Map? elementData;
 
   @override
   State<DetailsAddEditPageTemplate> createState() =>
@@ -28,6 +28,15 @@ class _DetailsAddEditPageTemplateState
     extends State<DetailsAddEditPageTemplate> {
   @override
   Widget build(BuildContext context) {
+    List<String>? fieldValues;
+
+    if (widget.elementData != null) {
+      fieldValues = List.generate(
+          widget.jsonFieldNames.length,
+          (index) =>
+              widget.elementData![widget.jsonFieldNames[index]].toString());
+    }
+
     return Scaffold(
         appBar: AppBar(),
         body: Padding(
@@ -73,8 +82,8 @@ class _DetailsAddEditPageTemplateState
                                   decoration: InputDecoration(
                                     labelText: widget.fieldNames[index],
                                   ),
-                                  initialValue: widget.fieldValues != null
-                                      ? widget.fieldValues![index]
+                                  initialValue: fieldValues != null
+                                      ? fieldValues[index]
                                       : "",
                                 )),
                       ))

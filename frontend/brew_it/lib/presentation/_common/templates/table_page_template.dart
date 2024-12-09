@@ -97,6 +97,20 @@ class _TablePageTemplateState extends State<TablePageTemplate> {
                                   .toString()));
                         }
 
+                        List<MyIconButton>? elementButtons;
+
+                        if (widget.options != null) {
+                          elementButtons = [];
+                          for (MyIconButton optionButton in widget.options!) {
+                            elementButtons.add(MyIconButton(
+                              type: optionButton.type,
+                              navigateToPage: optionButton.navigateToPage,
+                              dataForPage: elements[index],
+                              customOnPressed: optionButton.customOnPressed,
+                            ));
+                          }
+                        }
+
                         return Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -110,8 +124,7 @@ class _TablePageTemplateState extends State<TablePageTemplate> {
                             Expanded(
                               flex: 2,
                               child: Row(
-                                children: widget.options ?? [],
-                              ),
+                                  children: elementButtons ?? []),
                             )
                           ],
                         );

@@ -1,12 +1,20 @@
 import 'package:brew_it/core/theme/button_themes.dart';
 import 'package:brew_it/core/theme/colors.dart';
+import 'package:brew_it/presentation/contract/reservation_details_page.dart';
 import 'package:flutter/material.dart';
 
 class MyIconButton extends StatelessWidget {
-  MyIconButton({this.type = "default", this.navigateToPage, super.key});
+  MyIconButton(
+      {this.type = "default",
+      this.navigateToPage,
+      this.dataForPage,
+      this.customOnPressed,
+      super.key});
 
   final String type;
-  final Widget? navigateToPage;
+  final Function? navigateToPage;
+  final Map? dataForPage;
+  final Function? customOnPressed;
 
   final typeToIcon = {
     "default": Icons.info_outline,
@@ -34,8 +42,12 @@ class MyIconButton extends StatelessWidget {
     return IconButton(
         onPressed: () {
           if (navigateToPage != null) {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => navigateToPage!));
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              // return navigateToPage!(dataForPage);
+              return ReservationDetailsPage(dataForPage!);
+            }));
+          } else if (customOnPressed != null) {
+            customOnPressed!();
           }
         },
         style: iconButtonTheme.style!.copyWith(
