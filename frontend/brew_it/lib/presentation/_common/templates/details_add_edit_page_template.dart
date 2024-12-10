@@ -1,6 +1,7 @@
 import 'package:brew_it/core/theme/text_form_field_themes.dart';
 import 'package:brew_it/core/theme/text_themes.dart';
 import 'package:brew_it/presentation/_common/widgets/main_button.dart';
+import 'package:brew_it/presentation/_common/widgets/my_app_bar.dart';
 import 'package:brew_it/presentation/_common/widgets/my_icon_button.dart';
 import 'package:flutter/material.dart';
 
@@ -52,7 +53,7 @@ class _DetailsAddEditPageTemplateState
     }
 
     return Scaffold(
-        appBar: AppBar(),
+        appBar: MyAppBar(context),
         body: Padding(
           padding: const EdgeInsets.all(50),
           child: Stack(

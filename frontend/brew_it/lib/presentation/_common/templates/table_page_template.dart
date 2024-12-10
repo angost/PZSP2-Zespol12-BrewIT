@@ -1,4 +1,5 @@
 import 'package:brew_it/presentation/_common/widgets/main_button.dart';
+import 'package:brew_it/presentation/_common/widgets/my_app_bar.dart';
 import 'package:brew_it/presentation/_common/widgets/my_icon_button.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -53,7 +54,7 @@ class _TablePageTemplateState extends State<TablePageTemplate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
+        appBar: MyAppBar(context),
         body: Padding(
           padding: const EdgeInsets.all(50),
           child: Column(
@@ -123,8 +124,7 @@ class _TablePageTemplateState extends State<TablePageTemplate> {
                             ),
                             Expanded(
                               flex: 2,
-                              child: Row(
-                                  children: elementButtons ?? []),
+                              child: Row(children: elementButtons ?? []),
                             )
                           ],
                         );

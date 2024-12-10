@@ -44,14 +44,17 @@ class MainButton extends StatelessWidget {
                 'userId': 1,
               },
             );
-            print(response.data);
             Navigator.push(context, MaterialPageRoute(builder: (context) {
               return navigateToPage!(dataForPage);
             }));
           } else if (navigateToPage != null) {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
               if (dataForPage != null) {
-                return navigateToPage!(dataForPage);
+                try {
+                  return navigateToPage!(dataForPage);
+                } catch (e) {
+                  return navigateToPage!();
+                }
               } else {
                 return navigateToPage!();
               }

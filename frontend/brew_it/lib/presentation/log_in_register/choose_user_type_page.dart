@@ -1,3 +1,4 @@
+import 'package:brew_it/presentation/_common/widgets/my_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:brew_it/presentation/commercial/home_page_commercial.dart';
 import 'package:brew_it/presentation/contract/home_page_contract.dart';
@@ -8,7 +9,7 @@ class ChooseUserTypePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
+        appBar: MyAppBar(context),
         body:
             Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           Text(

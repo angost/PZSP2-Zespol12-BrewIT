@@ -1,4 +1,5 @@
 import 'package:brew_it/presentation/_common/widgets/menu_button.dart';
+import 'package:brew_it/presentation/_common/widgets/my_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class HomePageTemplate extends StatelessWidget {
@@ -11,7 +12,7 @@ class HomePageTemplate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
+        appBar: MyAppBar(context),
         body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Expanded(flex: 2, child: Container()),
           Expanded(
