@@ -12,7 +12,7 @@ class ProductionProcessesPage extends TablePageTemplate {
             title: "Twoje procesy wykonania piwa:",
             button: MainButton("Dodaj proces", type: "secondary_small",
                 navigateToPage: () {
-              return ProductionProcessAddPage();
+              return ProductionProcessAddPage({});
             }),
             headers: ProductionProcessesFieldNames().fieldNamesTable,
             options: [

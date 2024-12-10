@@ -1,4 +1,5 @@
 import 'package:brew_it/core/theme/button_themes.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 class MainButton extends StatelessWidget {
@@ -7,6 +8,8 @@ class MainButton extends StatelessWidget {
       this.navigateToPage,
       this.dataForPage,
       this.customOnPressed,
+      this.formKey,
+      this.apiCall,
       super.key});
 
   final String content;
@@ -14,6 +17,8 @@ class MainButton extends StatelessWidget {
   final Function? navigateToPage;
   final Map? dataForPage;
   final Function? customOnPressed;
+  final GlobalKey<FormState>? formKey;
+  final String? apiCall;
 
   final typeToStyle = {
     "default": secondaryButtonTheme,
@@ -26,8 +31,24 @@ class MainButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        onPressed: () {
-          if (navigateToPage != null) {
+        onPressed: () async {
+          if (formKey != null && apiCall != null) {
+            formKey!.currentState!.save();
+            final dio = Dio();
+            final response = await dio.post(
+              'https://jsonplaceholder.typicode.com/posts', // MOCK -> apiCall!
+              data: {
+                // MOCK -> dataForPage
+                'title': 'My post',
+                'body': 'This is my post content',
+                'userId': 1,
+              },
+            );
+            print(response.data);
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return navigateToPage!(dataForPage);
+            }));
+          } else if (navigateToPage != null) {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
               if (dataForPage != null) {
                 return navigateToPage!(dataForPage);

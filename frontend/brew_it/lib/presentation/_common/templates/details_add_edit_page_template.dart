@@ -5,7 +5,7 @@ import 'package:brew_it/presentation/_common/widgets/my_icon_button.dart';
 import 'package:flutter/material.dart';
 
 class DetailsAddEditPageTemplate extends StatefulWidget {
-  const DetailsAddEditPageTemplate(
+  DetailsAddEditPageTemplate(
       {required this.title,
       this.buttons,
       this.options,
@@ -21,7 +21,7 @@ class DetailsAddEditPageTemplate extends StatefulWidget {
   final List<String> fieldNames;
   final List<String> jsonFieldNames;
   final List<bool>? fieldEditable;
-  final Map? elementData;
+  Map? elementData;
 
   @override
   State<DetailsAddEditPageTemplate> createState() =>
@@ -33,12 +33,22 @@ class _DetailsAddEditPageTemplateState
   @override
   Widget build(BuildContext context) {
     List<String>? fieldValues;
+    GlobalKey<FormState>? formKey;
 
-    if (widget.elementData != null) {
+    if (widget.elementData != null && widget.elementData!.isNotEmpty) {
       fieldValues = List.generate(
           widget.jsonFieldNames.length,
           (index) =>
               widget.elementData![widget.jsonFieldNames[index]].toString());
+    }
+
+    if (widget.buttons != null) {
+      for (MainButton button in widget.buttons!) {
+        if (button.formKey != null) {
+          formKey = button.formKey;
+          break;
+        }
+      }
     }
 
     return Scaffold(
@@ -78,30 +88,40 @@ class _DetailsAddEditPageTemplateState
                   ),
                   Expanded(
                       flex: 8,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children:
-                            List.generate(widget.fieldNames.length, (index) {
-                          bool editable = widget.fieldEditable != null &&
-                              widget.fieldEditable![index];
+                      child: Form(
+                          key: formKey,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: List.generate(widget.fieldNames.length,
+                                (index) {
+                              bool editable = widget.fieldEditable != null &&
+                                  widget.fieldEditable![index];
 
-                          return TextFormField(
-                            decoration: editable
-                                ? InputDecoration(
-                                    labelText: widget.fieldNames[index])
-                                : InputDecoration(
-                                    labelText: widget.fieldNames[index],
-                                    border: disabledTextFormFieldTheme.border,
-                                    fillColor:
-                                        disabledTextFormFieldTheme.fillColor,
-                                  ),
-                            initialValue:
-                                fieldValues != null ? fieldValues[index] : "",
-                            enabled: editable,
-                            style: baseTextTheme.bodyLarge,
-                          );
-                        }),
-                      ))
+                              return TextFormField(
+                                onSaved: (newValue) {
+                                  widget.elementData ??= {};
+                                  widget.elementData![
+                                      widget.jsonFieldNames[index]] = newValue;
+                                  print(widget.elementData);
+                                },
+                                decoration: editable
+                                    ? InputDecoration(
+                                        labelText: widget.fieldNames[index])
+                                    : InputDecoration(
+                                        labelText: widget.fieldNames[index],
+                                        border:
+                                            disabledTextFormFieldTheme.border,
+                                        fillColor: disabledTextFormFieldTheme
+                                            .fillColor,
+                                      ),
+                                initialValue: fieldValues != null
+                                    ? fieldValues[index]
+                                    : "",
+                                enabled: editable,
+                                style: baseTextTheme.bodyLarge,
+                              );
+                            }),
+                          )))
                 ],
               ),
             ],
