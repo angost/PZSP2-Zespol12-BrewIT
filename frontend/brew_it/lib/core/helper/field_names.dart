@@ -40,3 +40,26 @@ class ProductionProcessesFieldNames extends StandardFieldNames {
           "id", "title", "completed"
         ]);
 }
+
+class MachinesFieldNames extends StandardFieldNames {
+  MachinesFieldNames()
+      : super(fieldNames: [
+          "Nazwa",
+          "Pojemność",
+          "Cena za dzień",
+        ], jsonFieldNames: [
+          // MOCK
+          "name",
+          "name",
+          "price",
+        ], fieldNamesTable: [
+          "Id",
+          "Nazwa",
+          "Pojemność",
+          "Cena za dzień",
+          "Operacje"
+        ], jsonFieldNamesTable: [
+          // MOCK
+          "id", "name", "name", "price",
+        ]);
+}

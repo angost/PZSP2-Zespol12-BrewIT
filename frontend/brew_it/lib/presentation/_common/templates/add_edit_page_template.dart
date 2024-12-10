@@ -28,6 +28,7 @@ class AddEditPageTemplate extends DetailsAddEditPageTemplate {
                 "Anuluj",
                 type: "secondary_small",
                 navigateToPage: navigateToPageCancel,
+                dataForPage: elementData,
               )
             ],
             fieldNames: fieldNames,
