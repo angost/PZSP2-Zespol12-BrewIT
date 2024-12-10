@@ -102,7 +102,6 @@ class _DetailsAddEditPageTemplateState
                                   widget.elementData ??= {};
                                   widget.elementData![
                                       widget.jsonFieldNames[index]] = newValue;
-                                  print(widget.elementData);
                                 },
                                 decoration: editable
                                     ? InputDecoration(
