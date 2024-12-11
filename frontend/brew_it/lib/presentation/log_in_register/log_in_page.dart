@@ -1,10 +1,10 @@
 import 'package:brew_it/presentation/_common/widgets/main_button.dart';
 import 'package:brew_it/presentation/_common/widgets/my_app_bar.dart';
+import 'package:brew_it/presentation/contract/home_page_contract.dart';
 import 'package:brew_it/presentation/log_in_register/choose_user_type_page.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:brew_it/presentation/commercial/home_page_commercial.dart';
-// import 'package:brew_it/presentation/contract/home_page_contract.dart';
 
 class LogInPage extends StatefulWidget {
   const LogInPage({super.key});
@@ -68,11 +68,20 @@ class _LogInPageState extends State<LogInPage> {
                                   data: logInData,
                                 );
                                 if (response.statusCode == 200) {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              HomePageCommercial()));
+                                  if (response.data["user_type"] ==
+                                      "Production_Brewery") {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                HomePageCommercial()));
+                                  } else {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                HomePageContract()));
+                                  }
                                 } else {
                                   print("Log in failed");
                                 }

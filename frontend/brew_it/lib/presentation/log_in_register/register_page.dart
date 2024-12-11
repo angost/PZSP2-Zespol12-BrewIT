@@ -27,6 +27,7 @@ class _RegisterPageState extends State<RegisterPage> {
       registerFieldNames = RegisterCommercialFieldNames();
     } else {
       registerData["selector"] = "CONTR";
+      registerData["water_ph"] = "0";
       registerFieldNames = RegisterContractFieldNames();
     }
   }
