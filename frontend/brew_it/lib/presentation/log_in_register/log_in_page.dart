@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:brew_it/presentation/_common/widgets/main_button.dart';
 import 'package:brew_it/presentation/_common/widgets/my_app_bar.dart';
 import 'package:brew_it/presentation/log_in_register/choose_user_type_page.dart';

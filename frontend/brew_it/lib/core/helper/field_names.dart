@@ -11,6 +11,42 @@ abstract class StandardFieldNames {
   List<String> jsonFieldNamesTable;
 }
 
+class RegisterCommercialFieldNames extends StandardFieldNames {
+  RegisterCommercialFieldNames()
+      : super(fieldNames: [
+          "Email",
+          "Hasło",
+          "Powtórz hasło",
+          "Nazwa firmy",
+          "NIP",
+          "Ph wody",
+        ], jsonFieldNames: [
+          "email",
+          "password",
+          "password2",
+          "name",
+          "nip",
+          "water_ph"
+        ], fieldNamesTable: [], jsonFieldNamesTable: []);
+}
+
+class RegisterContractFieldNames extends StandardFieldNames {
+  RegisterContractFieldNames()
+      : super(fieldNames: [
+          "Email",
+          "Hasło",
+          "Powtórz hasło",
+          "Nazwa firmy",
+          "NIP",
+        ], jsonFieldNames: [
+          "email",
+          "password",
+          "password2",
+          "name",
+          "nip",
+        ], fieldNamesTable: [], jsonFieldNamesTable: []);
+}
+
 class ProductionProcessesFieldNames extends StandardFieldNames {
   ProductionProcessesFieldNames()
       : super(fieldNames: [
