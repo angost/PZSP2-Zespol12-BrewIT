@@ -1,5 +1,9 @@
 # Backend #
 
+# Certificates #
+localhost.crt
+localhost.key
+
 # Django #
 *.log
 *.pot
