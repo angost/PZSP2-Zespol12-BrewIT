@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'brewit_api.apps.BrewitApiConfig',
     'corsheaders',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -141,3 +142,8 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "brewit_api.Account"
+
+CSRF_COOKIE_SECURE = True  # Ciasteczka CSRF będą przesyłane tylko przez HTTPS
+SESSION_COOKIE_SECURE = True  # Ciasteczka sesji będą przesyłane tylko przez HTTPS
+CSRF_COOKIE_SAMESITE = 'None'  # Ciasteczka CSRF mogą być przesyłane cross-origin
+SESSION_COOKIE_SAMESITE = 'None'  # Ciasteczka sesji mogą być przesyłane cross-origin
