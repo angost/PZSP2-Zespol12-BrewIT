@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:brew_it/presentation/_common/widgets/main_button.dart';
 import 'package:brew_it/presentation/_common/widgets/my_app_bar.dart';
 import 'package:brew_it/presentation/log_in_register/choose_user_type_page.dart';
@@ -61,23 +62,22 @@ class _LogInPageState extends State<LogInPage> {
                             type: "primary_big",
                             customOnPressed: () async {
                               formKey.currentState!.save();
-                              final dio = Dio();
-                              final response = await dio.post(
-                                'https://jsonplaceholder.typicode.com/posts', // MOCK -> apiCall!
-                                data: {
-                                  'title': 'My post',
-                                  'body': 'This is my post content',
-                                  'userId': 1,
-                                }, // MOCK -> logInData!
-                              );
-                              if (response.statusCode == 201) {
-                                // MOCK -> 200
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            HomePageCommercial()));
-                              } else {
+                              try {
+                                final dio = Dio();
+                                final response = await dio.post(
+                                  'http://127.0.0.1:8000/api/login/',
+                                  data: logInData,
+                                );
+                                if (response.statusCode == 200) {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              HomePageCommercial()));
+                                } else {
+                                  print("Log in failed");
+                                }
+                              } on DioException catch (e) {
                                 print("Log in failed");
                               }
                             },
