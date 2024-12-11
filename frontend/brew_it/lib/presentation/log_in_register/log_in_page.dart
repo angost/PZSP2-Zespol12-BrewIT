@@ -1,3 +1,4 @@
+import 'package:brew_it/injection_container.dart';
 import 'package:brew_it/presentation/_common/widgets/main_button.dart';
 import 'package:brew_it/presentation/_common/widgets/my_app_bar.dart';
 import 'package:brew_it/presentation/contract/home_page_contract.dart';
@@ -62,9 +63,8 @@ class _LogInPageState extends State<LogInPage> {
                             customOnPressed: () async {
                               formKey.currentState!.save();
                               try {
-                                final dio = Dio();
-                                final response = await dio.post(
-                                  'http://127.0.0.1:8000/api/login/',
+                                final response = await getIt<Dio>().post(
+                                  '/login/',
                                   data: logInData,
                                 );
                                 if (response.statusCode == 200) {

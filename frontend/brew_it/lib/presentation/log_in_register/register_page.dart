@@ -1,4 +1,5 @@
 import 'package:brew_it/core/helper/field_names.dart';
+import 'package:brew_it/injection_container.dart';
 import 'package:brew_it/presentation/_common/widgets/main_button.dart';
 import 'package:brew_it/presentation/_common/widgets/my_app_bar.dart';
 import 'package:brew_it/presentation/log_in_register/log_in_page.dart';
@@ -72,9 +73,8 @@ class _RegisterPageState extends State<RegisterPage> {
                                   customOnPressed: () async {
                                 formKey.currentState!.save();
                                 try {
-                                  final dio = Dio();
-                                  final response = await dio.post(
-                                    'http://127.0.0.1:8000/api/register/',
+                                  final response = await getIt<Dio>().post(
+                                    '/register/',
                                     data: registerData,
                                   );
                                   if (response.statusCode == 201) {
