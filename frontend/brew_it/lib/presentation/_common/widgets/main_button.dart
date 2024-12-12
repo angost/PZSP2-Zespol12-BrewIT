@@ -51,7 +51,8 @@ class MainButton extends StatelessWidget {
                   data: dataForPage,
                 );
               }
-              if (response.statusCode == 200) {
+              if (response.statusCode == 200 || response.statusCode == 201) {
+                // MOCK? Create add/edit template which has standart apiCallType and accepted status code
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return navigateToPage!(dataForPage);
                 }));
