@@ -1,3 +1,4 @@
+import 'package:dio/browser.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -9,8 +10,9 @@ void setup() {
 
 Dio _createDio() {
   final dio = Dio(BaseOptions(
-    baseUrl: "http://127.0.0.1:8000/api",
+    baseUrl: "https://127.0.0.1:8000/api",
   ));
-  dio.options.headers = {};
+  // dio.options.extra['withCredentials'] = true;
+  dio.httpClientAdapter = BrowserHttpClientAdapter(withCredentials: true);
   return dio;
 }

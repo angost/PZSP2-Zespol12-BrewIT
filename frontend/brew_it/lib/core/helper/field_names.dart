@@ -84,10 +84,9 @@ class MachinesFieldNames extends StandardFieldNames {
           "Pojemność",
           "Cena za dzień",
         ], jsonFieldNames: [
-          // MOCK
           "name",
-          "name",
-          "price",
+          "capacity",
+          "daily_price",
         ], fieldNamesTable: [
           "Id",
           "Nazwa",
@@ -95,7 +94,9 @@ class MachinesFieldNames extends StandardFieldNames {
           "Cena za dzień",
           "Operacje"
         ], jsonFieldNamesTable: [
-          // MOCK
-          "id", "name", "name", "price",
+          "equipment_id",
+          "name",
+          "capacity",
+          "daily_price",
         ]);
 }
